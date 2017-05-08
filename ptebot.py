@@ -70,3 +70,20 @@ def tickAllCenters():
     driver.execute_script('selectCenter("74481")')
     driver.implicitly_wait(6)
     pass
+
+def loopTestCenters():
+    index = 0
+    while index < 3:
+        for i in range(4):
+            radios = driver.find_elements_by_xpath('//div[@id="choosecenter"]//tbody/tr//input')
+            radios[i].click()
+            driver.implicitly_wait(10)
+        print(index)
+        index += 1
+    else:
+        driver.execute_script("alert('done')")
+
+def checkCenter():
+    calendar = driver.find_element_by_id('calendar')
+    date = calendar.find_elements_by_xpaht('//a[@class="open"]')
+    http://selenium-python.readthedocs.io/waits.html?highlight=expected_conditions
